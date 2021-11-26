@@ -1,9 +1,9 @@
-<%- include("template/cabecera", {tituloWeb: 'Crear nueva Mascota'}) %>
+<%- include("template/cabecera", {tituloWeb: 'Registrar Paciente'}) %>
 
     <div class="container">
         <h1>Crear</h1>
 
-        <form action="/mascotas" class="my-2" method="POST">
+        <form action="/pacientes" class="my-2" method="POST">
     
             <input 
                 type="text"
@@ -14,9 +14,23 @@
         
             <input 
                 type="text"
-                placeholder="Ingrese Descripción"
+                placeholder="Ingresela Edad"
                 class="form-control my-2"
-                name="descripcion"
+                name="edad"
+            >
+
+            <input 
+                type="text"
+                placeholder="Ingrese Historial"
+                class="form-control my-2"
+                name="historial"
+            >
+
+            <input 
+                type="text"
+                placeholder="Ingrese el medicamento"
+                class="form-control my-2"
+                name="madicamento"
             >
         
             <button

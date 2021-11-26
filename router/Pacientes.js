@@ -1,17 +1,17 @@
 const express = require('express');
 const router = express.Router();
 
-const Mascota = require('../models/mascota')
+const Paciente = require('../models/paciente')
 
 router.get('/', async (req, res) => {
     
     try {
         
-        const arrayMascotasDB = await Mascota.find()
-        console.log(arrayMascotasDB)
+        const arrayPacientesDB = await Paciente.find()
+        console.log(arrayPacientesDB)
 
-        res.render("mascotas", {
-            arrayMascotas: arrayMascotasDB
+        res.render("pacientes", {
+            arrayPacientesDB: arrayPacientesDB
         })
 
     } catch (error) {
@@ -28,8 +28,8 @@ router.get('/crear', (req, res) => {
 router.post('/', async(req, res)=>{
     const body = req.body
     try {
-        await Mascota.create(body)
-        res.redirect('/mascotas')
+        await Paciente.create(body)
+        res.redirect('/pacientes')
 
     } catch (error) {
         console.log(error)
@@ -41,11 +41,11 @@ router.get('/:id', async(req,res)=>{
     const id = req.params.id
 
     try {
-        const mascotaDB = await Mascota.findOne({_id: id})
-        console.log(mascotaDB)
+        const pacienteDB = await Paciente.findOne({_id: id})
+        console.log(pacienteDB)
 
         res.render('detalle', {
-            mascota: mascotaDB,
+            paciente: pacienteDB,
             error: false
         })
     } catch (error) {
@@ -62,9 +62,9 @@ router.delete('/:id', async(req, res)=>{
     const id = req.params.id
 
     try {
-        const mascotaDB = await Mascota.findByIdAndDelete({_id:id})
+        const pacienteDB = await Paciente.findByIdAndDelete({_id:id})
 
-        if(mascotaDB){
+        if(pacienteDB){
             res.json({
                 estado:true,
                 mensaje:'Eliminado'
@@ -88,8 +88,8 @@ router.put('/:id', async(req, res)=>{
 
     try {
         
-        const mascotaDB = await Mascota.findByIdAndUpdate(id, body, { useFindAndModify: false})
-        console.log(mascotaDB)
+        const pacienteDB = await Paciente.findByIdAndUpdate(id, body, { useFindAndModify: false})
+        console.log(pacienteDB)
 
         res.json({
             estado: true,

@@ -10,14 +10,14 @@ app.use(bodyParser.json())
 
 require('dotenv').config()
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 // Conexión a Base de datos
 const mongoose = require('mongoose');
 
 const user = "Manuel";
 const password = "riq0fp8PTFaG87X0";
-const dbname = "veterinaria";
+const dbname = "hospital";
 
 const uri = `mongodb+srv://${user}:${password}@cluster0.0yh35.mongodb.net/${dbname}?retryWrites=true&w=majority`;
 
@@ -36,7 +36,7 @@ app.use(express.static(__dirname + "/public"));
 
 // Rutas Web
 app.use('/', require('./router/RutasWeb'));
-app.use('/mascotas', require('./router/Mascotas'));
+app.use('/pacientes', require('./router/Pacientes'));
 
 app.use((req, res, next) => {
     res.status(404).render("404", {

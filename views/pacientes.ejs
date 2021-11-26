@@ -5,9 +5,9 @@
         <h1>CRUD Mongo</h1>
         <a
             class="btn btn-success btn-block my-4"
-            href="/mascotas/crear"
+            href="/pacientes/crear"
         >
-            Crear Mascota
+            Registrar Paciente
           </a>
 
         <table class="table">
@@ -15,22 +15,25 @@
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nombre</th>
-                <th scope="col">Descripción</th>
-                <th scope="col">Acción</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Historial</th>
+                <th scope="col">Medicina</th>
               </tr>
             </thead>
             <tbody>
                 
-                <% if (arrayMascotas.length > 0) { %>
-                    <% arrayMascotas.forEach(mascota => { %>
+                <% if (arrayPacientesDB.length > 0) { %>
+                    <% arrayPacientesDB.forEach(paciente => { %>
                         
                         <tr>
-                            <th scope="row"><%= mascota.id %> </th>
-                            <td><%= mascota.nombre %></td>
-                            <td><%= mascota.descripcion %></td>
+                            <th scope="row"><%= paciente.id %> </th>
+                            <td><%= paciente.nombre %></td>
+                            <td><%= paciente.edad %></td>
+                            <td><%= paciente.historial %></td>
+                            <td><%= paciente.medicina%></td>
                             <td>
                                 <a 
-                                    href="mascotas/<%= mascota.id %>"
+                                    href="pacientes/<%= paciente.id %>"
                                     class="btn btn-warning btn-sm"
                                 >
                                 EDITAR
